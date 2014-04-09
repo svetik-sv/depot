@@ -1,0 +1,18 @@
+<% if notice %>
+<p id="notice"><%= notice%></p>
+<% end %>
+
+<h1> Каталог чая </h1>
+<%= pluralize(@count.to_i, "conversion") if @count>=5 %>
+<% @products.each do |product| %>
+  <div class = "entry">
+    <%= image_tag(product.image_url) %>
+    <h3> <%= product.title %> </h3>
+    <%= sanitize(product.description) %>
+    <div class="price_line">
+      <span class="price"><%= number_to_currency(product.price, options={ :unit => "Руб", :format => "%n%u", :separator =>","}) %> </span>
+      <%= button_to 'Добавить в корзину', line_items_path(product_id: product)%>
+    </div>
+  </div>
+<% end %>
+
