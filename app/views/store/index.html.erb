@@ -2,7 +2,7 @@
 <p id="notice"><%= notice%></p>
 <% end %>
 
-<h1> Каталог чая </h1>
+<h1> Каталог </h1>
 <%= pluralize(@count.to_i, "conversion") if @count>=5 %>
 <% @products.each do |product| %>
   <div class = "entry">
