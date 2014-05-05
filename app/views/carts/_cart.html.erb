@@ -7,6 +7,6 @@
     <td class="total_cell"><%= number_to_currency(cart.total_price, options={ :unit => "Руб", :format => "%n%u", :separator =>","}) %></td>
   </tr>
 </table>
-
+<%= button_to"Оформить заказ", new_order_path, method: :get %>
 <%= button_to 'Очистить корзину', cart, method: :delete, confirm: 'Вы уверены?', remote: true %>
 <% end %>
