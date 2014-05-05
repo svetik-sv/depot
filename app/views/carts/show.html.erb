@@ -2,19 +2,4 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class="cart_title"> Ваша корзина </div>
-<table>
-  <% @cart.line_items.each do |item| %>
-    <tr>
-      <td><%= item.quantity %>&times;</td>
-      <td><%= item.product.title %> </td>
-      <td class="item_price"><%= number_to_currency(item.total_price, options={ :unit => "Руб", :format => "%n%u", :separator =>","}) %></td>
-    </tr>
-  <% end %>
-  <tr class="total_line">
-    <td colspan="2">Итого</td>
-    <td class="total_cell"><%= number_to_currency(@cart.total_price, options={ :unit => "Руб", :format => "%n%u", :separator =>","}) %></td>
-  </tr>
-</table>
-
-<%= button_to 'Очистить корзину', @cart, method: :delete, confirm: 'Вы уверены?' %>
+  <%= render @cart %>

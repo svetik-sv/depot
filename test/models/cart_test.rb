@@ -1,24 +1,24 @@
 require 'test_helper'
 
 class CartTest < ActiveSupport::TestCase
-  def new_cart_with_one_product(product_name, product_price)
-    cart = Cart.create
-    cart.add_product (products(product_name).id, products(product_price).price)
-    cart
+  def setup
+    @cart = Cart.create
+    @book_one = products(:ruby)
+    @book_two = products(:two)
   end
 
-  test 'cart should create a new line item when adding a new product' do
-    cart = new_cart_with_one_product(:one)
-    assert_equal 1, cart.line_items.count
-    # Add a new product
-    cart.add_product(products(:ruby).id)
-    assert_equal 2, cart.line_items.count
+  test 'в корзине должна добавляться новая строка товара при добавлении нового продукта' do
+    @cart.add_product(@book_one).save!
+    @cart.add_product(@book_two).save!
+    assert_equal 2, @cart.line_items.size
+
   end
 
-  test 'cart should update an existing line item when adding an existing product' do
-    cart = new_cart_with_one_product(:one)
-    # Re-add the same product
-    cart.add_product(products(:one).id)
-    assert_equal 1, cart.line_items.count
+  test 'в корзине должна обновляться строка товара при добавлении уже существующего продукта' do
+    @cart.add_product(@book_one.id).save!
+    @cart.add_product(@book_one.id).save!
+    assert_equal 2*@book_one.price, @cart.total_price
+    assert_equal 1, @cart.line_items.size
+    assert_equal 2, @cart.line_items[0].quantity
   end
 end

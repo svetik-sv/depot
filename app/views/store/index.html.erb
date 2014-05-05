@@ -8,10 +8,11 @@
   <div class = "entry">
     <%= image_tag(product.image_url) %>
     <h3> <%= product.title %> </h3>
-    <%= sanitize(product.description) %>
+    <h3> <%= sanitize(product.description) %> </h2>
     <div class="price_line">
       <span class="price"><%= number_to_currency(product.price, options={ :unit => "Руб", :format => "%n%u", :separator =>","}) %> </span>
-      <%= button_to 'Добавить в корзину', line_items_path(product_id: product)%>
+      <%= button_to 'Добавить в корзину', line_items_path(product_id: product),
+            remote: true  %>
     </div>
   </div>
 <% end %>
