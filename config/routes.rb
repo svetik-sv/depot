@@ -1,10 +1,10 @@
 Depot::Application.routes.draw do
+  get "store/index"
 
   resources :orders
 
   resources :carts
 
-  get "store/index"
   resources :products
 
   resources :line_items do
