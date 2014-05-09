@@ -5,7 +5,9 @@ Depot::Application.routes.draw do
 
   resources :carts
 
-  resources :products
+  resources :products do
+    get :who_bought, on: :member
+  end
 
   resources :line_items do
     #member do
