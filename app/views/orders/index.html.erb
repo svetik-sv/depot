@@ -1,12 +1,12 @@
-<h1>Listing orders</h1>
+<h1>Список заказов</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
+      <th>Имя</th>
+      <th>Адрес</th>
       <th>Email</th>
-      <th>Pay type</th>
+      <th>Тип оплаты</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,9 +20,9 @@
         <td><%= order.address %></td>
         <td><%= order.email %></td>
         <td><%= order.pay_type %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', order %></td>
+        <td><%= link_to 'Редактировать', edit_order_path(order) %></td>
+        <td><%= link_to 'Удалить', order, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,5 +30,5 @@
 
 <br>
 
-<%= link_to 'New Order', new_order_path %>
+<%= link_to 'Новый заказ', new_order_path %>
 <p><%= will_paginate @orders %></p>

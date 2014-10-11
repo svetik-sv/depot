@@ -1,4 +1,4 @@
-<h1>Listing users</h1>
+<h1>Список пользователей</h1>
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
@@ -6,7 +6,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Имя</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,9 +17,9 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', user %></td>
+        <td><%= link_to 'Редакция', edit_user_path(user) %></td>
+        <td><%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Новый пользователь', new_user_path %>

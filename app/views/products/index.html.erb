@@ -13,9 +13,9 @@
         </dl>
       </td>
 <td class ="list_actions">
-  <%=link_to 'Show', product %><br/>
-  <%=link_to 'Edit', edit_product_path(product)%> <br/>
-  <%=link_to 'Destroy', product, confirm:'Вы уверены?', method: :delete %>
+  <%=link_to 'Показать', product %><br/>
+  <%=link_to 'Редакция', edit_product_path(product)%> <br/>
+  <%=link_to 'Удалить', product, confirm:'Вы уверены?', method: :delete %>
 </td>
 </tr>
 <%end %>
@@ -23,4 +23,4 @@
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'Новый продукт', new_product_path %>

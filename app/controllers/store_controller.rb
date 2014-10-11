@@ -1,3 +1,4 @@
+
 class StoreController < ApplicationController
   skip_before_filter :authorize
 

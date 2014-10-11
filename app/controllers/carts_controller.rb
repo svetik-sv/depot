@@ -1,3 +1,4 @@
+
 class CartsController < ApplicationController
   skip_before_filter :authorize, only: [:create, :update, :destroy]
   before_action :set_cart, only: [:show, :edit, :update]
@@ -33,7 +34,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to @cart, notice: 'Корзина успешно создана.' }
         format.json { render action: 'show', status: :created, location: @cart }
       else
         format.html { render action: 'new' }
@@ -47,7 +48,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to @cart, notice: 'Корзина успешно обновлена.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
