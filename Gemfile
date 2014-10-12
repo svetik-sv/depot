@@ -48,4 +48,4 @@ gem "bcrypt-ruby"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "magic_encoding"
+gem 'annotate'
