@@ -20,10 +20,10 @@
       <% end %>
 
     <ul>
-      <li><a href="http://www....">Домашняя страница</a></li>
-      <li><a href="http://www..../faq">Вопросы</a></li>
-      <li><a href="http://www..../news">Новости</a></li>
-      <li><a href="http://www..../contact">Контакты</a></li>
+      <li><%= link_to 'Домашняя страница', store_path %></li>
+      <li><%= link_to 'Вопросы', faq_path %></li>
+      <li><%= link_to 'Новости', news_path %></li>
+      <li><%= link_to 'Контакты', contact_path %></li>
       <li><a> <%= l Time.now, :format => :short %></a></li>
     </ul>
 <% if session[:user_id] %>
