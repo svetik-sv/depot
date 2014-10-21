@@ -29,8 +29,16 @@ Depot::Application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
 
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :user_name => '25361d15c9570bf43',
+  :password => 'a3c3d7c5c495b9',
+  :address => 'mailtrap.io',
+  :domain => 'mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
+}
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 end

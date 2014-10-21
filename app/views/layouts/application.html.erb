@@ -5,40 +5,49 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="<%= controller.controller_name %>">
-  <div id="banner">
-    <%= image_tag("logo.jpg") %>
-    <%= @page_title || "Магазин..." %>
-  </div>
-  <div id= "columns">
-    <div id="side">
-     <% if @cart %>
-        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-          <%= render @cart %>
-        <% end %>
-      <% end %>
+  <div class="wrapper container">
 
-    <ul>
-      <li><%= link_to 'Домашняя страница', store_path %></li>
-      <li><%= link_to 'Вопросы', faq_path %></li>
-      <li><%= link_to 'Новости', news_path %></li>
-      <li><%= link_to 'Контакты', contact_path %></li>
-      <li><a> <%= l Time.now, :format => :short %></a></li>
-    </ul>
-<% if session[:user_id] %>
-  <ul>
-    <li><%= link_to 'Заказы', orders_path %></li>
-    <li><%= link_to 'Продукты', products_path %></li>
-    <li><%= link_to 'Пользователи', users_path %></li>
-  </ul>
-<%= button_to 'Выход', logout_path, method: :delete %>
-<% end %>
+    <header>
 
-  </div>
-  <div id="main">
-    <%= yield %>
-  </div>
-</div>
+          <div class="page-header form-inline">
+
+
+
+          <h1>      <%= image_tag("logo.jpg") %>Магазин...</h1>
+
+      <form name="search" action="#" method="get" class="form-inline form-search navbar-right">
+      <div class="input-group">
+      <label class="sr-only" for="searchInput">Search</label>
+      <input class="form-control" id="searchInput" type="text" name="search" placeholder="Введите текст">
+      <div class="input-group-btn">
+      <button type="submit" class="btn btn-primary">Поиск</button>
+      </div>
+      </div>
+      </form>
+      </div>
+    </header>
+
+       <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+         <li><i class="icon-home"></i><%= link_to 'Домашняя страница', store_path %></li>
+         <li><%= link_to 'Вопросы', faq_path %></li>
+         <li><%= link_to 'Новости', news_path %></li>
+         <li><%= link_to 'Контакты', contact_path %></li>
+        </ul>
+       </nav>
+
+            <section class="wrapper container">
+                <div id="main">
+                 <%= yield %>
+                </div>
+            </section>
+
+    </div>
+    <footer></footer>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
